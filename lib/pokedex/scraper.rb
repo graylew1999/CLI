@@ -2,7 +2,7 @@ class pokedex::Scraper
     def self.scrape_pokemon 
       doc = Nokogiri::HTML(open("https://www.pokemon.com/us/pokedex/"))
       
-      pokemon = doc.css("select#edit-date-filter-month option") 
+      pokemon = doc.css("section pokedex-results overflow-visible") 
       
       pokemon.each do |m|
          name = m.text
